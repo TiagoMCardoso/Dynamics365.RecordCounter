@@ -1,0 +1,166 @@
+﻿<html>
+<head>
+    <title>Dynamics 365 Record Counter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="ClientGlobalContext.js.aspx"></script>
+    <script type="text/javascript" src="../WebResources/tmc_RecordCounter.js"></script>
+    <link rel="stylesheet" href="../WebResources/tmc_RecordCounter.css">
+
+    <!--JQuery and Bootstrap Libraries-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" language="javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body style="word-wrap: break-word;" onload="RecordCounter.OnLoad()">
+    <div class="container" style="width:98%">
+        <h3>Dynamics 365 Record Counter</h3>
+        <br>
+        <br>
+        <button type="submit" id="btnExecute" class="btn btn-lg btn-block btn-success" aria-label="Center Align" style="width:100%" onclick="RecordCounter.ExecuteCount();">
+            Execute Count
+        </button>
+        <br><br>
+        <div id="errorBox" class="alert alert-danger" role="alert" style="display:none">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            <span id="errorMessage"></span>
+        </div>
+
+        <form class="needs-validation">
+            <table id="myTable" class="table order-list">
+                <thead>
+                    <tr>
+                        <td class="col-sm-8">
+                            <label>
+                                Entity Plural Name<br />I.e.: accountS, contactS, opportunitIES, etc
+                            </label>
+                        </td>
+                        <td class="col-sm-3">
+                            <label>Count</label>
+                        </td>
+                        <td class="col-sm-2"></td>
+                        <td class="col-sm-3"><input type="button" class="ibtnNew btn btn-md btn-block btn-primary" id="addrow" value="Add Row" /></td>
+                        <td class="col-sm-2"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--1 Account-->
+                    <tr>
+                        <td>
+                            <div class="ui-widget">
+                                <input class="form-control" id="entity0" name="entity" value="accounts">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="record0" name="total" placeholder="" readonly>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="loader0" name="loader" class="loader" style="display:none"></div>
+                        </td>
+                        <td>
+                            <input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete Row" />
+                        </td>
+                        <td>
+                            <a class="deleteRow"></a>
+                        </td>
+                    </tr>
+                    <!--2 Contact-->
+                    <tr>
+                        <td>
+                            <div class="ui-widget">
+                                <input class="form-control" id="entity1" name="entity" value="contacts">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="record1" name="total" placeholder="" readonly>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="loader1" name="loader" class="loader" style="display:none"></div>
+                        </td>
+                        <td>
+                            <input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete Row" />
+                        </td>
+                        <td>
+                            <a class="deleteRow"></a>
+                        </td>
+                    </tr>
+                    <!--3 Lead-->
+                    <tr>
+                        <td>
+                            <div class="ui-widget">
+                                <input class="form-control" id="entity2" name="entity" value="leads">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="record2" name="total" placeholder="" readonly>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="loader2" name="loader" class="loader" style="display:none"></div>
+                        </td>
+                        <td>
+                            <input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete Row" />
+                        </td>
+                        <td>
+                            <a class="deleteRow"></a>
+                        </td>
+                    </tr>
+                    <!--4 Opportunity-->
+                    <tr>
+                        <td>
+                            <div class="ui-widget">
+                                <input class="form-control" id="entity3" name="entity" value="opportunities">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="record3" name="total" placeholder="" readonly>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="loader3" name="loader" class="loader" style="display:none"></div>
+                        </td>
+                        <td>
+                            <input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete Row" />
+                        </td>
+                        <td>
+                            <a class="deleteRow"></a>
+                        </td>
+                    </tr>
+                    <!--5 Case-->
+                    <tr>
+                        <td>
+                            <div class="ui-widget">
+                                <input class="form-control" id="entity4" name="entity" value="incidents">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="record4" name="total" placeholder="" readonly>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="loader4" name="loader" class="loader" style="display:none"></div>
+                        </td>
+                        <td>
+                            <input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete Row" />
+                        </td>
+                        <td>
+                            <a class="deleteRow"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
