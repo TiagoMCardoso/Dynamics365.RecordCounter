@@ -206,7 +206,7 @@ RecordCounter.CountRecords = function (totalId, loaderId, entityPluralName, next
                         }
                         // If Total already has value remove the format
                         else {
-                            value = $(totalId).val().replace(",", "");
+                            value = $(totalId).val().replace(/,/g, "");
                             value = parseInt(value);
                         }
 

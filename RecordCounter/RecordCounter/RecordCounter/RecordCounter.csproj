@@ -48,6 +48,11 @@
     <Content Include="html\tmc_RecordCounter.html" />
     <Content Include="scripts\tmc_RecordCounter.js" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="_solutions\RecordCounter_1_0_0_0.zip" />
+    <None Include="_solutions\RecordCounter_1_0_0_0_managed.zip" />
+    <None Include="_solutions\RecordCounter_1_0_0_1.zip" />
+    <None Include="_solutions\RecordCounter_1_0_0_1_managed.zip" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
